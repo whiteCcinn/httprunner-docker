@@ -1,0 +1,2 @@
+HttpRunner==1.5.10
+configparser==3.5.0
