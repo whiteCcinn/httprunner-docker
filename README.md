@@ -1,6 +1,25 @@
+## start
+
+```
 docker build -t httprunner .
+```
 
-docker run -it --rm --name demo-httprunner -v "$PWD":/usr/src/myapp -w /usr/src/myapp httprunner sh
+## run single testcase
 
-hrun `pwd`/testcases/you-json-file.json
+```
+docker run --rm -v "$PWD":/usr/src/myapp httprunner testcases/you-json-file.json
 
+docker run --rm -v "$PWD":/usr/src/myapp httprunner hrun testcases/you-json-file.json
+```
+
+## run all testcase
+
+```
+docker run --rm -v "$PWD":/usr/src/myapp httprunner run-all.sh
+```
+
+## login the container
+
+``` 
+docker run -it --rm -v "$PWD":/usr/src/myapp httprunner /bin/sh
+```
