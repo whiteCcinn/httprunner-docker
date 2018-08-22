@@ -1,7 +1,5 @@
 FROM python:3.6-alpine3.6
 
-#if sh env is /bin/sh this will be output use color
-#ENV TERM xterm-256color
 ENV HTTPRUNNER_VERSION 1.5.10
 ENV PYTHON_VERSION 3.6
 ENV WORKSPACE /usr/src/myapp
