@@ -1,0 +1,78 @@
+[
+  {
+    "config": {
+      "name": "testset description",
+      "variables": [
+        {
+          "case_name": "demo-jsonschema"
+        }
+      ],
+      "request": {
+        "base_url": "${get_base_url()}",
+        "headers": {
+          "Host": "${get_host()}",
+          "Connection": "${get_connection()}",
+          "Pragma": "${get_pragma()}",
+          "Cache-Control": "${get_cache_control()}",
+          "User-Agent": "${get_user_agent()}",
+          "Upgrade-Insecure-Requests": "${get_upgrade_insecure_requests()}",
+          "Accept": "${get_accept()}",
+          "Accept-Encoding": "${get_accept_encoding()}",
+          "Accept-Language": "${get_accept_language()}"
+        }
+      }
+    }
+  },
+  {
+    "test": {
+      "name": "/user - use jsonschema",
+      "variables": [
+        {
+          "json_schema": "user"
+        }
+      ],
+      "request": {
+        "url": "/user",
+        "method": "GET",
+        "params": {}
+      },
+      "validate": [
+        {
+          "eq": [
+            "status_code",
+            401
+          ]
+        },
+        {
+          "eq": [
+            "jsonschema_error",
+            ""
+          ]
+        }
+      ],
+      "setup_hooks": [
+        "${hook_prepare($request)}"
+      ],
+      "teardown_hooks": [
+        "${hook_teardown($case_name,$response,$json_schema)}"
+      ]
+    }
+  },
+  {
+    "test": {
+      "name": "/favicon.ico - not use jsonschema",
+      "request": {
+        "url": "favicon.ico",
+        "method": "GET"
+      },
+      "validate": [
+        {
+          "eq": [
+            "status_code",
+            200
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Author  : ccinn (https://github.com/whiteCcinn)
+
 import configparser
 import os
 from util.env import Env

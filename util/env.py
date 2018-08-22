@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Author  : ccinn (https://github.com/whiteCcinn)
+
 import os
 
 

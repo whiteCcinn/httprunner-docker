@@ -1,0 +1,33 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "message",
+    "documentation_url"
+  ],
+  "properties": {
+    "message": {
+      "$id": "#/properties/message",
+      "type": "string",
+      "title": "The Message Schema",
+      "default": "",
+      "examples": [
+        "Requires authentication"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "documentation_url": {
+      "$id": "#/properties/documentation_url",
+      "type": "string",
+      "title": "The Documentation_url Schema",
+      "default": "",
+      "examples": [
+        "https://developer.github.com/v3/users/#get-the-authenticated-user"
+      ],
+      "pattern": "^(.*)$"
+    }
+  }
+}
