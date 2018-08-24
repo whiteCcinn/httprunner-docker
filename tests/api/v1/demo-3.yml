@@ -1,0 +1,16 @@
+- api:
+    def: api_v1_demo_3_1_GET()
+    request:
+      url: /user
+      method: GET
+      params: {}
+    validate:
+    - eq: [status_code, 401]
+    - eq: [jsonschema_error, '']
+    setup_hooks: ['${hook_prepare($request)}']
+    teardown_hooks: ['${hook_teardown($case_name,$response,$json_schema)}']
+- api:
+    def: api_v1_demo_3_2_GET()
+    request: {url: favicon.ico, method: GET}
+    validate:
+    - eq: [status_code, 200]

@@ -1,0 +1,43 @@
+[
+  {
+    "config": {
+      "name": "testset description",
+      "variables": [
+        {
+          "case_name": "demo-jsonschema"
+        }
+      ],
+      "request": {
+        "base_url": "${get_base_url()}",
+        "headers": {
+          "Host": "${get_host()}",
+          "Connection": "${get_connection()}",
+          "Pragma": "${get_pragma()}",
+          "Cache-Control": "${get_cache_control()}",
+          "User-Agent": "${get_user_agent()}",
+          "Upgrade-Insecure-Requests": "${get_upgrade_insecure_requests()}",
+          "Accept": "${get_accept()}",
+          "Accept-Encoding": "${get_accept_encoding()}",
+          "Accept-Language": "${get_accept_language()}"
+        }
+      }
+    }
+  },
+  {
+    "test": {
+      "name": "/user - use jsonschema",
+      "variables": [
+        {
+          "json_schema": "user"
+        }
+      ],
+      "api": "api_v1_demo_GET()"
+    }
+  },
+  {
+    "test": {
+      "name": "/favicon.ico - not use jsonschema",
+      "api": "api_v1_demo_2_GET()"
+    }
+  }
+]
